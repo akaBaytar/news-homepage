@@ -1,0 +1,51 @@
+@use '../util/' as fn;
+
+.blog {
+  display: grid;
+  gap: fn.rem(30);
+
+  @media (width >= fn.em(1110)) {
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    grid-column: 1 / -1;
+    padding-block-start: fn.rem(40);
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: fn.rem(100) auto;
+    grid-template-rows: repeat(3, auto);
+    gap: fn.rem(8) fn.rem(24);
+  }
+
+  &__image {
+    grid-row: 1 / 4;
+  }
+
+  &__number {
+    line-height: 1;
+    font-weight: 700;
+    font-size: var(--font-md);
+    color: var(--clr-silver);
+  }
+
+  &__headline {
+    align-self: center;
+
+    a {
+      color: var(--clr-dark-blue);
+      font-weight: 800;
+      transition: color .25s ease;
+
+      &:hover {
+        color: var(--clr-orange);
+      }
+    }
+  }
+
+  &__description {
+    align-self: end;
+    line-height: 1.5;
+    color: var(--clr-gray);
+  }
+}

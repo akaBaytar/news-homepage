@@ -1,0 +1,62 @@
+@use '../util/' as fn;
+
+.nav {
+  &__open {
+    @media (width >= fn.em(1110)) {
+      display: none;
+    }
+
+    &[aria-expanded='true'] {
+      ~ .nav__content {
+        translate: 0;
+
+        @media (prefers-reduced-motion) {
+          opacity: 1;
+        }
+      }
+
+      ~ .nav__overlay {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__content {
+    @media (width < fn.em(1110)) {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      inset: 0 0 0 fn.rem(120);
+      padding: fn.rem(30);
+      background-color: var(--clr-white);
+      translate: 100vw 0;
+      transition: translate 0.5s ease;
+    }
+
+    @media (prefers-reduced-motion) {
+      translate: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+  }
+
+  &__close {
+    display: block;
+    margin-inline-start: auto;
+    margin-block-end: fn.rem(86);
+
+    @media (width >= fn.em(1110)) {
+      display: none;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    display: none;
+    inset: 0;
+    opacity: 0;
+    background-color: var(--clr-dark-blue);
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+}

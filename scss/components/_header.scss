@@ -1,0 +1,45 @@
+@use '../util/' as fn;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: fn.rem(30);
+
+  @media (width >= fn.em(1110)) {
+    padding-block: fn.rem(55);
+  }
+
+  &__logo {
+    width: fn.rem(45);
+
+    @media (width >= fn.em(1110)) {
+      width: fn.rem(64);
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: fn.rem(24);
+
+    @media (width >= fn.em(1110)) {
+      flex-direction: row;
+      gap: fn.rem(40);
+    }
+  }
+
+  &__link {
+    line-height: 1.3;
+    color: var(--clr-dark-blue);
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: var(--clr-orange);
+    }
+
+    @media (width >= fn.rem(1110)) {
+      color: var(--clr-gray);
+    }
+  }
+}

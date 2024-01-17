@@ -1,0 +1,12 @@
+@use '../util/' as fn;
+
+.grid {
+  display: grid;
+  gap: fn.rem(64);
+
+  @media (width >= fn.em(1110)) {
+    gap: fn.rem(30);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: fn.rem(300) auto auto;
+  }
+}

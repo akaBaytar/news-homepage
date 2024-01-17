@@ -1,0 +1,6 @@
+@use '../util/' as fn;
+
+.wrapper {
+  width: min(fn.rem(1110), calc(100% - fn.rem(32)));
+  margin-inline: auto;
+}
